@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 //? Package imports
 import 'package:get/get.dart';
 
+//? Helper & Constants imports
+import 'package:bookly/constants.dart';
+
 //? View imports
 import 'package:bookly/features/splash/presentation/views/splash_view.dart';
 
@@ -17,10 +20,11 @@ class ApplicationRoot extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurpleAccent),
+      title: 'Bookly',
+      theme: ThemeData().copyWith(
+        scaffoldBackgroundColor: kPrimaryColor,
         useMaterial3: true,
+        brightness: Brightness.dark,
       ),
       home: const SplashView(),
     );
