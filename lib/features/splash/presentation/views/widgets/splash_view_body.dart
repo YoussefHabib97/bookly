@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:bookly/features/home/presentation/views/home_view.dart';
+
+//? Package imports
+import 'package:get/get.dart';
 
 //? Utility imports
+import 'package:bookly/constants.dart';
 import 'package:bookly/core/utilities/assets.dart';
 
 //? Widget imports
@@ -18,9 +23,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   late AnimationController animationController;
   late Animation<Offset> slidingAnimation;
 
-  @override
-  void initState() {
-    super.initState();
+  void initSlidingAnimation() {
     animationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 1),
@@ -31,6 +34,20 @@ class _SplashViewBodyState extends State<SplashViewBody>
             .animate(animationController);
     animationController.forward();
     slidingAnimation.addListener(() => setState(() {}));
+  }
+
+  void navigateToHome() {
+    Future.delayed(const Duration(seconds: 3), () {
+      Get.to(() => const HomeView(),
+          transition: Transition.fade, duration: kTransitionDuration);
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    initSlidingAnimation();
+    navigateToHome();
   }
 
   @override
