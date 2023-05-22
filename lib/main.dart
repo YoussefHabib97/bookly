@@ -8,6 +8,7 @@ import 'package:bookly/constants.dart';
 
 //? View imports
 import 'package:bookly/features/splash/presentation/views/splash_view.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const ApplicationRoot());
@@ -22,6 +23,7 @@ class ApplicationRoot extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Bookly',
       theme: ThemeData.dark().copyWith(
+        textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
         scaffoldBackgroundColor: kPrimaryColor,
         useMaterial3: true,
       ),
